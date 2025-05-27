@@ -7,8 +7,7 @@ function requestHandler(req, res) {
     const urlObject = url.parse(req.url, true);
     let fileName = `./templates/${urlObject.pathname}`;
     fileName = (urlObject.pathname === "/") ? "./templates/index.html" : fileName;
-    fileName = (urlObject.pathname === "/styles.css") ? "./styles.css" : fileName;
-
+   
     fs.readFile(fileName, function(error, data) {
         if (error) {
             return fs.readFile("./templates/404.html", function(err, data) {
