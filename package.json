@@ -1,0 +1,20 @@
+{
+  "name": "odin-first-node-site",
+  "version": "1.0.0",
+  "description": "A simple website to practice node.",
+  "homepage": "https://github.com/SamuelWyck/odin-first-node-site#readme",
+  "bugs": {
+    "url": "https://github.com/SamuelWyck/odin-first-node-site/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamuelWyck/odin-first-node-site.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
