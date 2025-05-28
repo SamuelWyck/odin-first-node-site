@@ -1,6 +1,11 @@
-import url from "url";
+import {fileURLToPath} from "url";
 import express from "express";
+import path from "path";
 import fs from "fs";
+import { get } from "https";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 
 
@@ -16,26 +21,18 @@ app.get("/", function(req, res) {
     });
 });
 
-app.get(/about.html$/, function(req, res) {
-    fs.readFile("./templates/about.html", function(error, data) {
-        if (error) {
+app.get("/:name", function(req, res) {
+    const options = {
+        root: path.join(__dirname, "templates")
+    };
+
+    const fileName = req.params.name;
+
+    return res.sendFile(fileName, options, function(err) {
+        if (err) {
             return getErrorPage(res);
         }
-        return res.end(data);
     });
-});
-
-app.get(/contact-me.html$/, function(req, res) {
-    fs.readFile("./templates/contact-me.html", function(error, data) {
-        if (error) {
-            return getErrorPage(res);
-        }
-        return res.end(data);
-    })
-});
-
-app.get(/\/*/, function(req, res) {
-    return getErrorPage(res);
 });
 
 
